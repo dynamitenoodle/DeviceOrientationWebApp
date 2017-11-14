@@ -1,6 +1,7 @@
 # DeviceOrientationWebApp
 Coehl Gleckner's IGME 230 Project 4
-<a href="https://github.com/dynamitenoodle/DeviceOrientationWebApp">Github</a>
+
+ <a href="https://github.com/dynamitenoodle/DeviceOrientationWebApp">Github</a>
 
 For my interactive web app, I plan to create a simple maze game utilizing device orientation. I plan on using the javascript canvas to draw my game onto the screen, and depending on the way you turn your device, it will interact with the ball in the maze. I plan on allowing you to set your default orientation, so you could play it with the default being face up on a table, have the default be straight towards you, or whatever direction you desire.
 
