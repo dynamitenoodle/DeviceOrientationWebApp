@@ -10,3 +10,7 @@ The three different versions of the project will be a simple maze puzzle, no dif
 The game itself will feature you adding forces to the ball to move it around the screen, maybe you being able to shake the screen to jump the ball, and a button or something that allows you to recalibrate the default orientation of the game.
 
 To learn how to create the game, I will use tutorials on how to use jquery UI, or javascript Canvas depending on which I deem more helpful to my cause, and how to properly implement the event listener for device orientation.
+
+<body></body>
+
+<canvas id="graphics" width=600 height=100 style="position:absolute:top:0:left:0; background-image:url('Wooden Puzzle.jpg');"></canvas>
