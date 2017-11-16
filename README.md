@@ -11,4 +11,4 @@ The game itself will feature you adding forces to the ball to move it around the
 
 To learn how to create the game, I will use tutorials on how to use jquery UI, or javascript Canvas depending on which I deem more helpful to my cause, and how to properly implement the event listener for device orientation.
 
-<img href="Wooden Puzzle.jpg">
+<img src="Wooden Puzzle.jpg" width="350">
