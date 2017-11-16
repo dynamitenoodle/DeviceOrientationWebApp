@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>Gleckner-Puzzle</title>
+
+    <!--
+        The Canvas Guide
+         https://www.w3schools.com/html/html5_canvas.asp
+        The making a game in javascript guide
+         https://msdn.microsoft.com/en-us/library/gg589497(v=vs.85).aspx 
+        Creating more basic shapes
+         https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
+    -->
+</head>
+
+<body>
+    <canvas id="myCanvas" width="500" height="500" style="border:1px solid #000000;"></canvas>
+</body>
+
+<script>
+    // on the page loading do this
+    window.onload = function() { start(); };
+
+    // the update loop interval
+    setInterval(gameLoop, 1000 / 33);
+
+    // attributes
+    let c = document.getElementById("myCanvas");
+    let ctx = c.getContext("2d");
+    let back = new Image();
+
+    // what happens at the start of the game
+    function start(){
+        drawGameBoard();
+    }
+    
+    // drawing the game board
+    function drawGameBoard(){
+        // background
+        ctx.fillStyle = "black";
+        ctx.fillRect(0, 0, 500, 500);
+        ctx.clearRect(15, 15, 470, 470);
+        back = ctx.getImageData(0, 0, 30, 30);
+
+        /*  ctx.moveTo(0,0); ctx.lineTo(0,500);  ctx.stroke();  */
+    }
+
+    function gameLoop() {
+        // Do stuff.
+    }
+</script>
+
+</html>
