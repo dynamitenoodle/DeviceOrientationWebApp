@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
     <title>Gleckner-Puzzle</title>
-
+    <link rel="stylesheet" type="text/css" href="puzzleStyle.css">
     <!--
         The Canvas Guide
          https://www.w3schools.com/html/html5_canvas.asp
@@ -17,12 +17,17 @@
 </head>
 
 <body>
-    <canvas id="myCanvas" width="500" height="500" style="border:1px solid #000000;"></canvas>
+    <canvas id="myCanvas" width="500" height="500">
+        <div class="ball"></div>
+    </canvas>
+      
+    <pre class="output"></pre>
 </body>
 
 <script>
-    // on the page loading do this
+    // window functions
     window.onload = function() { start(); };
+    window.addEventListener("deviceorientation", handleOrientation, true);
 
     // the update loop interval
     setInterval(gameLoop, 1000 / 33);
@@ -34,6 +39,14 @@
     let lineX = 0;
     let lineY = 0;
     let first = true;
+
+    // ball stuff
+    let ball   = document.querySelector('.ball');
+    let garden = document.querySelector('.garden');
+    let output = document.querySelector('.output');
+
+    let maxX = c.clientWidth  - ball.clientWidth;
+    let maxY = c.clientHeight - ball.clientHeight;
 
     // what happens at the start of the game
     function start(){
@@ -71,6 +84,29 @@
             lineY = 0;
             first = false;
         }
+    }
+
+    function handleOrientation(event) {
+      var x = event.beta;  // In degree in the range [-180,180]
+      var y = event.gamma; // In degree in the range [-90,90]
+
+      output.innerHTML  = "beta : " + x + "\n";
+      output.innerHTML += "gamma: " + y + "\n";
+
+      // Because we don't want to have the device upside down
+      // We constrain the x value to the range [-90,90]
+      if (x >  90) { x =  90};
+      if (x < -90) { x = -90};
+
+      // To make computation easier we shift the range of 
+      // x and y to [0,180]
+      x += 90;
+      y += 90;
+
+      // 10 is half the size of the ball
+      // It center the positioning point to the center of the ball
+      ball.style.top  = (maxX*x/180 - 10) + "px";
+      ball.style.left = (maxY*y/180 - 10) + "px";
     }
 </script>
 
