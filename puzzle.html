@@ -31,6 +31,9 @@
     let c = document.getElementById("myCanvas");
     let ctx = c.getContext("2d");
     let back = new Image();
+    let lineX = 0;
+    let lineY = 0;
+    let first = true;
 
     // what happens at the start of the game
     function start(){
@@ -50,6 +53,24 @@
 
     function gameLoop() {
         // Do stuff.
+        if (first){
+            ctx.fillStyle = "black";
+            ctx.moveTo(0,0); 
+            ctx.lineTo(lineX++,lineY++);  
+            ctx.stroke();
+        }
+
+        else {
+            ctx.moveTo(500, 0);
+            ctx.lineTo(lineX--, lineY++)
+            ctx.stroke();
+        }
+
+        if (lineX == 500 && lineY == 500){
+            lineX = 500;
+            lineY = 0;
+            first = false;
+        }
     }
 </script>
 
