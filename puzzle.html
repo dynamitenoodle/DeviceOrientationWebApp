@@ -18,9 +18,9 @@
 
 <body>
     <canvas id="myCanvas" width="500" height="500">
-        <div class="ball"></div>
     </canvas>
-      
+    <div class="ball"></div>
+    
     <pre class="output"></pre>
 </body>
 
@@ -57,9 +57,11 @@
     function drawGameBoard(){
         // background
         ctx.fillStyle = "black";
+        
         ctx.fillRect(0, 0, 500, 500);
         ctx.clearRect(15, 15, 470, 470);
         back = ctx.getImageData(0, 0, 30, 30);
+        
 
         /*  ctx.moveTo(0,0); ctx.lineTo(0,500);  ctx.stroke();  */
     }
@@ -84,6 +86,7 @@
             lineY = 0;
             first = false;
         }
+        
     }
 
     function handleOrientation(event) {
