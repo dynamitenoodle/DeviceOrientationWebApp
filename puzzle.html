@@ -17,8 +17,8 @@
 </head>
 
 <body>
-    <canvas id="myCanvas" width="500" height="500">
-    </canvas>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+
     <div class="ball"></div>
     
     <pre class="output"></pre>
@@ -28,6 +28,7 @@
     // window functions
     window.onload = function() { start(); };
     window.addEventListener("deviceorientation", handleOrientation, true);
+    //window.addEventListener("keypress", handleInput, true);
 
     // the update loop interval
     setInterval(gameLoop, 1000 / 33);
@@ -36,9 +37,6 @@
     let c = document.getElementById("myCanvas");
     let ctx = c.getContext("2d");
     let back = new Image();
-    let lineX = 0;
-    let lineY = 0;
-    let first = true;
 
     // ball stuff
     let ball   = document.querySelector('.ball');
@@ -48,8 +46,24 @@
     let maxX = c.clientWidth  - ball.clientWidth;
     let maxY = c.clientHeight - ball.clientHeight;
 
+    let ballTop = 240;
+    let ballLeft = 240;
+
+    // key presses
+    let keysPressed = {};
+
+    document.addEventListener("keydown", function(e) {
+        keysPressed[e.keyCode] = true;
+    });
+
+    document.addEventListener("keyup", function(e) {
+        keysPressed[e.keyCode] = false;
+    });
+
     // what happens at the start of the game
     function start(){
+        ball.style.top = maxY / 2;
+        ball.style.left = maxX / 2;
         drawGameBoard();
     }
     
@@ -61,40 +75,50 @@
         ctx.fillRect(0, 0, 500, 500);
         ctx.clearRect(15, 15, 470, 470);
         back = ctx.getImageData(0, 0, 30, 30);
-        
 
         /*  ctx.moveTo(0,0); ctx.lineTo(0,500);  ctx.stroke();  */
     }
 
     function gameLoop() {
         // Do stuff.
-        if (first){
-            ctx.fillStyle = "black";
-            ctx.moveTo(0,0); 
-            ctx.lineTo(lineX++,lineY++);  
-            ctx.stroke();
-        }
 
-        else {
-            ctx.moveTo(500, 0);
-            ctx.lineTo(lineX--, lineY++)
-            ctx.stroke();
-        }
+        // testing basic movement
+        let speed = 1;
+        let x = ballLeft;
+        let y = ballTop;
 
-        if (lineX == 500 && lineY == 500){
-            lineX = 500;
-            lineY = 0;
-            first = false;
+        // w:119  a:97  d:100  s:115
+        if (keysPressed["65"]){
+            // output.innerHTML += "a";
+            x -= speed;
         }
-        
+        if (keysPressed["68"]){
+            // output.innerHTML += "d";
+            x += speed;
+        }
+        if (keysPressed["83"]){
+            // output.innerHTML += "s";
+            y += speed;
+        }
+        if (keysPressed["87"]){
+            // output.innerHTML += "w";
+            y -= speed;
+        }      
+
+        ballLeft = x;
+        ballTop = y;
+
+        // set the movement
+        ball.style.top = ballTop + "px";
+        ball.style.left = ballLeft + "px";
     }
 
     function handleOrientation(event) {
-      var x = event.beta;  // In degree in the range [-180,180]
-      var y = event.gamma; // In degree in the range [-90,90]
+      let x = event.beta;  // In degree in the range [-180,180]
+      let y = event.gamma; // In degree in the range [-90,90]
 
-      output.innerHTML  = "beta : " + x + "\n";
-      output.innerHTML += "gamma: " + y + "\n";
+      output.innerHTML  = "beta / X : " + x + "\n";
+      output.innerHTML += "gamma / Y: " + y + "\n";
 
       // Because we don't want to have the device upside down
       // We constrain the x value to the range [-90,90]
@@ -108,9 +132,44 @@
 
       // 10 is half the size of the ball
       // It center the positioning point to the center of the ball
-      ball.style.top  = (maxX*x/180 - 10) + "px";
-      ball.style.left = (maxY*y/180 - 10) + "px";
+      // ball.style.top  = (maxX*x/180 - 10) + "px";
+      // ball.style.left = (maxY*y/180 - 10) + "px";
     }
+/*
+    function handleInput(event) {
+        let key = event.keyCode || event.which;
+        let speed = 1;
+
+        let x = ballLeft;
+        let y = ballTop;
+
+        console.log(`X: ${x} y: ${y}\nKey: ${key}`);
+
+        // w:119  a:97  d:100  s:115
+        if (key == 97){
+            // output.innerHTML += "a";
+            x -= speed;
+        }
+
+        if (key == 100){
+            // output.innerHTML += "d";
+            x += speed;
+        }
+
+        if (key == 115){
+            // output.innerHTML += "s";
+            y += speed;
+        }
+
+        if (key == 119){
+            // output.innerHTML += "w";
+            y -= speed;
+        }
+
+        ballLeft = x;
+        ballTop = y;
+    }
+*/
 </script>
 
 </html>
