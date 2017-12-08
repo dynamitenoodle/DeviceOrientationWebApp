@@ -1,6 +1,5 @@
     // window functions
     window.onload = function() { start(); };
-    window.addEventListener("deviceorientation", handleOrientation, true);
     //window.addEventListener("keypress", handleInput, true);
 
     // the update loop interval
@@ -30,7 +29,7 @@
     // labryrinth walls
     let walls = [[150, 75, 100, 100]];
 
-    // key presses
+    // user Input
     let keysPressed = {};
 
     document.addEventListener("keydown", function(e) {
@@ -41,6 +40,10 @@
         keysPressed[e.keyCode] = false;
     });
 
+    window.addEventListener("deviceorientation", handleOrientation, true);
+    let xOrient = 0;
+    let yOrient = 0;
+
     // what happens at the start of the game
     function start(){
         drawGameBoard();
@@ -50,7 +53,7 @@
     // the game loop
     function gameLoop() {
         // Do stuff.
-        //position = movement(position);
+        position = movement(position);
         acceleration = [0, 0];
 
         // Collision checks
@@ -275,8 +278,12 @@
       x += 90;
       y += 90;
 
-      position = movement(position, x, y);
+      setValues(x, y);
+    }
 
+    function setValues(x, y){
+        xOrient = x;
+        yOrient = y;
     }
 
     function movement(pos, x, y){
