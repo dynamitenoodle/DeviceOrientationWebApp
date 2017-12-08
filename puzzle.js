@@ -311,10 +311,10 @@
 */
 
         // bail out early is theres no movement
-        if ((x == 0 && y == 0) && (velocity[0] == 0 && velocity[1] == 0))
+        if ((x > -.1 && x < .1 && y > -.1 && y < .1) && (velocity[0] == 0 && velocity[1] == 0))
             return pos;
 
-        else if (x == 0 && y == 0){
+        else if (x > -.1 && x < .1 && y > -.1 && y < .1){
             velocity[0] = velocity[0] * .9;
             velocity[1] = velocity[1] * .9;
             pos = updatePosition(pos);
