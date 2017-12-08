@@ -276,7 +276,7 @@
       setValues(x, y);
     }
 
-    function setValues(x, y){
+    function setValues(y, x){
         xOrient = x;
         yOrient = y;
     }
