@@ -53,7 +53,7 @@
     // the game loop
     function gameLoop() {
         // Do stuff.
-        position = movement(position);
+        position = movement(position, xOrient, yOrient);
         acceleration = [0, 0];
 
         // Collision checks
