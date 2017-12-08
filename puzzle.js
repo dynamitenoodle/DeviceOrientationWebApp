@@ -273,11 +273,6 @@
       if (x >  90) { x =  90};
       if (x < -90) { x = -90};
 
-      // To make computation easier we shift the range of 
-      // x and y to [0,180]
-      x += 90;
-      y += 90;
-
       setValues(x, y);
     }
 
@@ -289,9 +284,9 @@
     function movement(pos, x, y){
         // testing basic movement
         let modify = 10;
-        x = x / 10;
-        y = y / 10;
-        
+        x = x / modify;
+        y = y / modify;
+        console.dir("X: " + x + "  Y: " + y);
 /*
         let x = 0;
         let y = 0;
