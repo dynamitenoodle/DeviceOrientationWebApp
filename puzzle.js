@@ -275,15 +275,17 @@
       x += 90;
       y += 90;
 
-      // 10 is half the size of the ball
-      // It center the positioning point to the center of the ball
-      // ball.style.top  = (maxX*x/180 - 10) + "px";
-      // ball.style.left = (maxY*y/180 - 10) + "px";
+      position = movement(position, x, y);
+
     }
 
-    function movement(pos){
+    function movement(pos, x, y){
         // testing basic movement
-        let direction = 10;
+        let modify = 10;
+        x = x / 10;
+        y = y / 10;
+        
+/*
         let x = 0;
         let y = 0;
 
@@ -304,6 +306,7 @@
             // output.innerHTML += "w";
             y -= direction;
         }
+*/
 
         // bail out early is theres no movement
         if ((x == 0 && y == 0) && (velocity[0] == 0 && velocity[1] == 0))
