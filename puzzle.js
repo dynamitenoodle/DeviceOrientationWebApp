@@ -262,8 +262,8 @@
       let x = event.beta;  // In degree in the range [-180,180]
       let y = event.gamma; // In degree in the range [-90,90]
 
-      //output.innerHTML  = "beta / X : " + x + "\n";
-      //output.innerHTML += "gamma / Y: " + y + "\n";
+      output.innerHTML  = "beta / X : " + x + "\n";
+      output.innerHTML += "gamma / Y: " + y + "\n";
 
       // Because we don't want to have the device upside down
       // We constrain the x value to the range [-90,90]
