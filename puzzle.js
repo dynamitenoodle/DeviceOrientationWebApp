@@ -56,7 +56,8 @@
     // Button press
     let resetBtn = document.getElementById("resetButton");
     resetBtn.onclick = function() {
-        
+        xOrientOffset = xOrient;
+        yOrientOffset = yOrient;
     };
 
     // what happens at the start of the game
@@ -290,8 +291,8 @@
 
       output.innerHTML  = "beta / X : " + x + "\n";
       output.innerHTML += "gamma / Y: " + y + "\n";
-      output.innerHTML += "xOffset: " + xOrientOffset;
-      output.innerHTML += "yOffset: " + yOrientOffset;
+      output.innerHTML += "xOffset: " + xOrientOffset + "\n";
+      output.innerHTML += "yOffset: " + yOrientOffset + "\n";
 
       setValues(x, y);
     }
