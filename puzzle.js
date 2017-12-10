@@ -104,7 +104,7 @@
     function drawBall(pos){
         ctx.beginPath();
         ctx.arc(pos[0], pos[1], radius, 0, 2 * Math.PI, false);
-        ctx.fillStyle = 'purple';
+        ctx.fillStyle = 'green';
         ctx.fill();
         ctx.lineWidth = 5;
         ctx.strokeStyle = '#003300';
@@ -155,12 +155,14 @@
 
     // collisions within the labyrinth
     function checkLabryrinth(pos, wallBox){
+        // values for ease
         let leaway = 50;
         let rightWall = wallBox[0] + wallBox[2];
         let leftWall = wallBox[0];
         let botWall = wallBox[1] + wallBox[3];
         let topWall = wallBox[1];
 
+        // check booleans
         let checkX = false;
         let checkY = false;
         let check = false;
@@ -178,6 +180,7 @@
             check = true;
         }
 
+        // the actual collision checks
         if (check){ 
             // left Wall
             if (pos[0] + radius > leftWall && pos[0] + radius < leftWall + leaway){
@@ -287,6 +290,11 @@
       gamma = x;
       beta = y;
 
+      output.innerHTML  = "beta / X : " + x + "\n";
+      output.innerHTML += "gamma / Y: " + y + "\n";
+      output.innerHTML += "xOffset: " + xOrientOffset + "\n";
+      output.innerHTML += "yOffset: " + yOrientOffset + "\n";
+
       if (xOrientOffset != 0 || yOrientOffset != 0) {
         x -= xOrientOffset;
         y -= yOrientOffset;
@@ -298,11 +306,6 @@
       if (x < -90) { x = -90};
       if (y > 90) { y = 90};
       if (y < -90) { y = -90};
-
-      output.innerHTML  = "beta / X : " + x + "\n";
-      output.innerHTML += "gamma / Y: " + y + "\n";
-      output.innerHTML += "xOffset: " + xOrientOffset + "\n";
-      output.innerHTML += "yOffset: " + yOrientOffset + "\n";
 
       setValues(x, y);
     }
