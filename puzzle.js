@@ -53,11 +53,14 @@
     let xOrientOffset = 0;
     let yOrientOffset = 0;
 
+    let gamma = 0;
+    let beta = 0;
+
     // Button press
     let resetBtn = document.getElementById("resetButton");
     resetBtn.onclick = function() {
-        xOrientOffset = xOrient;
-        yOrientOffset = yOrient;
+        xOrientOffset = gamma;
+        yOrientOffset = beta;
     };
 
     // what happens at the start of the game
@@ -280,6 +283,9 @@
     function handleOrientation(event) {
       let x = event.gamma; // In degree in the range [-90,90]      
       let y = event.beta;  // In degree in the range [-180,180]
+
+      gamma = x;
+      beta = y;
 
       if (xOrientOffset != 0 || yOrientOffset != 0) {
         x -= xOrientOffset;
