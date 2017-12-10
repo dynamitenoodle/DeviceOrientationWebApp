@@ -100,7 +100,7 @@
     function drawBall(pos){
         ctx.beginPath();
         ctx.arc(pos[0], pos[1], radius, 0, 2 * Math.PI, false);
-        ctx.fillStyle = 'red';
+        ctx.fillStyle = 'purple';
         ctx.fill();
         ctx.lineWidth = 5;
         ctx.strokeStyle = '#003300';
@@ -281,13 +281,15 @@
       let x = event.beta;  // In degree in the range [-180,180]
       let y = event.gamma; // In degree in the range [-90,90]
 
-      output.innerHTML  = "beta / X : " + x + "\n";
-      output.innerHTML += "gamma / Y: " + y + "\n";
-
       // Because we don't want to have the device upside down
-      // We constrain the x value to the range [-90,90]
+      // We constrain the x and y value to the range [-90,90]
       if (x >  90) { x =  90};
       if (x < -90) { x = -90};
+      if (y > 90) { y = 90};
+      if (y < -90) { y = -90};
+
+      output.innerHTML  = "beta / X : " + x + "\n";
+      output.innerHTML += "gamma / Y: " + y + "\n";
 
       setValues(x, y);
     }
@@ -303,6 +305,25 @@
         x = x / modify;
         y = y / modify;
         console.dir("X: " + x + "  Y: " + y);
+
+
+        // bail out early is theres no movement
+        if ((x > -.1 && x < .1 && y > -.1 && y < .1) && (velocity[0] == 0 && velocity[1] == 0))
+            return pos;
+
+        else if (x > -.1 && x < .1 && y > -.1 && y < .1){
+            velocity[0] = velocity[0] * .9;
+            velocity[1] = velocity[1] * .9;
+            pos = updatePosition(pos);
+            return pos;
+        }
+
+        let seekForce = [0, 0];
+        seekForce = seek(pos, x, y); 
+        applyForce(seekForce);
+        pos = updatePosition(pos);
+        return pos;
+    }
 /*
         let x = 0;
         let y = 0;
@@ -325,25 +346,6 @@
             y -= direction;
         }
 */
-
-        // bail out early is theres no movement
-        if ((x > -.1 && x < .1 && y > -.1 && y < .1) && (velocity[0] == 0 && velocity[1] == 0))
-            return pos;
-
-        else if (x > -.1 && x < .1 && y > -.1 && y < .1){
-            velocity[0] = velocity[0] * .9;
-            velocity[1] = velocity[1] * .9;
-            pos = updatePosition(pos);
-            return pos;
-        }
-
-        let seekForce = [0, 0];
-        seekForce = seek(pos, x, y); 
-        applyForce(seekForce);
-        pos = updatePosition(pos);
-        return pos;
-    }
-
     // calculating the direction you want the ball to go
     function seek(pos, x, y){        
         let wantedPos = [0, 0];
