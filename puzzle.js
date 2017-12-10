@@ -290,6 +290,8 @@
 
       output.innerHTML  = "beta / X : " + x + "\n";
       output.innerHTML += "gamma / Y: " + y + "\n";
+      output.innerHTML += "xOffset: " + xOrientOffset;
+      output.innerHTML += "yOffset: " + yOrientOffset;
 
       setValues(x, y);
     }
