@@ -290,8 +290,6 @@
       if (xOrientOffset != 0 || yOrientOffset != 0) {
         x -= xOrientOffset;
         y -= yOrientOffset;
-
-
       }
 
       // Because we don't want to have the device upside down
