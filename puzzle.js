@@ -290,8 +290,8 @@
       gamma = x;
       beta = y;
 
-      output.innerHTML  = "beta / X : " + x + "\n";
-      output.innerHTML += "gamma / Y: " + y + "\n";
+      output.innerHTML  = "gamma : " + gamma + "\n";
+      output.innerHTML += "beta : " + beta + "\n";
       output.innerHTML += "xOffset: " + xOrientOffset + "\n";
       output.innerHTML += "yOffset: " + yOrientOffset + "\n";
 
@@ -306,6 +306,9 @@
       if (x < -90) { x = -90};
       if (y > 90) { y = 90};
       if (y < -90) { y = -90};
+
+      output.innerHTML  = "X : " + x + "\n";
+      output.innerHTML += "Y: " + y + "\n";
 
       setValues(x, y);
     }
