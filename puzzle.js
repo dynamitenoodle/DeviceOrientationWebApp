@@ -26,6 +26,11 @@
     let force = [0, 0];
     let maxSpeed = 15;
 
+    // Screen Size
+    let screenHeight = 500;
+    let screenWidth = 500;
+    let screenBorder = 15;
+
     // labryrinth walls
     let walls = [[150, 75, 100, 100]];
 
@@ -40,9 +45,19 @@
         keysPressed[e.keyCode] = false;
     });
 
+    // orientation
     window.addEventListener("deviceorientation", handleOrientation, true);
     let xOrient = 0;
     let yOrient = 0;
+
+    let xOrientOffset = 0;
+    let yOrientOffset = 0;
+
+    // Button press
+    let resetBtn = document.getElementById("resetButton");
+    resetBtn.onclick = function() {
+        
+    };
 
     // what happens at the start of the game
     function start(){
@@ -76,8 +91,8 @@
         // background
         ctx.fillStyle = "black";
         
-        ctx.fillRect(0, 0, 500, 500);
-        ctx.clearRect(15, 15, 470, 470);
+        ctx.fillRect(0, 0, screenWidth, screenHeight);
+        ctx.clearRect(screenBorder, screenBorder, screenWidth - (screenBorder * 2), screenHeight - (screenBorder * 2));
         //ctx.fill();
     }
 
@@ -91,14 +106,14 @@
         ctx.strokeStyle = '#003300';
         ctx.stroke;
 
-        
+        /*
         // the bounding box of the circle
         //ctx.rect(pos[0] - radius, pos[1] - radius, radius * 2, radius * 2);
         ctx.rect(pos[0] - radius, pos[1] - radius, radius * 2, radius * 2);        
         ctx.strokeStyle = 'black';
         ctx.lineWidth = 1;
         ctx.stroke();
-        
+        */
     }
 
     // drawing the labyrinth
@@ -136,7 +151,7 @@
 
     // collisions within the labyrinth
     function checkLabryrinth(pos, wallBox){
-        let leaway = 5;
+        let leaway = 50;
         let rightWall = wallBox[0] + wallBox[2];
         let leftWall = wallBox[0];
         let botWall = wallBox[1] + wallBox[3];
@@ -184,6 +199,7 @@
                 velocity[1] = -velocity[1];
             }
         }
+    }
 /*
         // bounce that ball if it hits a side
         
@@ -259,7 +275,7 @@
             output.innerHTML = "";
         }
 */
-    }
+    
 
     function handleOrientation(event) {
       let x = event.beta;  // In degree in the range [-180,180]
