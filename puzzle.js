@@ -184,25 +184,25 @@
         if (check){ 
             // left Wall
             if (pos[0] + radius > leftWall && pos[0] + radius < leftWall + leaway){
-                //pos[0] = leftWall - radius;
+                pos[0] = leftWall - radius;
                 velocity[0] = -velocity[0];
             }
 
             // right Wall
             if (pos[0] - radius < rightWall && pos[0] - radius > rightWall - leaway){
-                //pos[0] = rightWall + radius;
+                pos[0] = rightWall + radius;
                 velocity[0] = -velocity[0];
             }
 
              // top Wall
             if (pos[1] + radius > topWall && pos[1] + radius < topWall + leaway) {
-                //pos[1] = top - radius;
+                pos[1] = top - radius;
                 velocity[1] = -velocity[1];
             }
 
             // right Wall
             if (pos[1] - radius < botWall && pos[1] - radius > botWall - leaway){
-                //pos[1] = rightWall + radius;
+                pos[1] = rightWall + radius;
                 velocity[1] = -velocity[1];
             }
         }
