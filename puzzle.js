@@ -156,7 +156,7 @@
     // collisions within the labyrinth
     function checkLabryrinth(pos, wallBox){
         // values for ease
-        let leaway = 50;
+        let leaway = 10;
         let rightWall = wallBox[0] + wallBox[2];
         let leftWall = wallBox[0];
         let botWall = wallBox[1] + wallBox[3];
@@ -186,24 +186,32 @@
             if (pos[0] + radius > leftWall && pos[0] + radius < leftWall + leaway){
                 pos[0] = leftWall - radius;
                 velocity[0] = -velocity[0];
+                console.dir("left");
+                
             }
 
             // right Wall
-            if (pos[0] - radius < rightWall && pos[0] - radius > rightWall - leaway){
+            else if (pos[0] - radius < rightWall && pos[0] - radius > rightWall - leaway){
                 pos[0] = rightWall + radius;
                 velocity[0] = -velocity[0];
+                console.dir("right");
+                
             }
 
              // top Wall
-            if (pos[1] + radius > topWall && pos[1] + radius < topWall + leaway) {
-                pos[1] = top - radius;
+            else if (pos[1] + radius > topWall && pos[1] + radius < topWall + leaway) {
+                pos[1] = topWall - radius;
                 velocity[1] = -velocity[1];
+                console.dir("top");
+                
             }
 
-            // right Wall
-            if (pos[1] - radius < botWall && pos[1] - radius > botWall - leaway){
-                pos[1] = rightWall + radius;
+            // bot Wall
+            else if (pos[1] - radius < botWall && pos[1] - radius > botWall - leaway){
+                pos[1] = botWall + radius;
                 velocity[1] = -velocity[1];
+                console.dir("bot");
+                
             }
         }
     }
@@ -307,7 +315,7 @@
       if (y > 90) { y = 90};
       if (y < -90) { y = -90};
 
-      output.innerHTML  = "X : " + x + "\n";
+      output.innerHTML += "X : " + x + "\n";
       output.innerHTML += "Y: " + y + "\n";
 
       setValues(x, y);
@@ -321,10 +329,27 @@
     function movement(pos, x, y){
         // testing basic movement
         let modify = 10;
+        let direction = 10;
         x = x / modify;
         y = y / modify;
-        console.dir("X: " + x + "  Y: " + y);
 
+        // w:119  a:97  d:100  s:115
+        if (keysPressed["65"]){
+            // output.innerHTML += "a";
+            x -= direction;
+        }
+        if (keysPressed["68"]){
+            // output.innerHTML += "d";
+            x += direction;
+        }
+        if (keysPressed["83"]){
+            // output.innerHTML += "s";
+            y += direction;
+        }
+        if (keysPressed["87"]){
+            // output.innerHTML += "w";
+            y -= direction;
+        }
 
         // bail out early is theres no movement
         if ((x > -.1 && x < .1 && y > -.1 && y < .1) && (velocity[0] == 0 && velocity[1] == 0))
