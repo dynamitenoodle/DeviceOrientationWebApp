@@ -76,6 +76,10 @@
             level = 0;
         }
 
+        if (window.location.pathname == "puzzle.html") {
+            level = 1;
+        }
+
         setup(level);
         drawGameBoard();
         drawBall(position);
@@ -129,9 +133,8 @@
             position = [240, 240];
         }
 
-        else {
-            winBox = [];
-            walls = [];
+        if (levelNum == 0) {
+            
         }
     }
 
