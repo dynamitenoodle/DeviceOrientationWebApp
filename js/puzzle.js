@@ -13,7 +13,7 @@
 
     // ball stuff
     // let ball   = document.querySelector('.ball');
-    let radius = 6;
+    let radius = 8;
     let garden = document.querySelector('.garden');
     let output = document.querySelector('.output');
 
@@ -72,9 +72,14 @@
 
     // what happens at the start of the game
     function start(){
+        if(window.location.pathname == "/documentation.html" || window.location.pathname == "/index.html"){
+            level = 0;
+        }
+
         setup(level);
         drawGameBoard();
         drawBall(position);
+        console.dir(window.location.pathname);
     }
 
     // the game loop
@@ -122,6 +127,10 @@
         if (levelNum == 2){
             winBox = [100, 50, 10, 10]
             position = [240, 240];
+        }
+
+        else {
+
         }
     }
 
