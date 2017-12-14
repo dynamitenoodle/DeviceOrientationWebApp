@@ -72,7 +72,7 @@
 
     // what happens at the start of the game
     function start(){
-        if(window.location.pathname == "/documentation.html" || window.location.pathname == "/index.html"){
+        if(window.location.pathname == "/index.html" || window.location.pathname == "/DeviceOrientationWebApp/index.html"){
             level = 0;
         }
 
@@ -130,7 +130,8 @@
         }
 
         else {
-
+            winBox = [];
+            walls = [];
         }
     }
 
