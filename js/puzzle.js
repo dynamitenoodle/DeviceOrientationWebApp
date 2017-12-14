@@ -19,7 +19,7 @@
     let maxX = c.clientWidth  - radius;
     let maxY = c.clientHeight - radius;
 
-    let color = "red";
+    let color = "purple";
 
     // movement stuff, the 1st number is x and the 2nd number is y
     let position = [240, 240];
@@ -133,14 +133,14 @@
         ctx.strokeStyle = '#003300';
         ctx.stroke;
 
-        /*
+/*
         // the bounding box of the circle
         //ctx.rect(pos[0] - radius, pos[1] - radius, radius * 2, radius * 2);
         ctx.rect(pos[0] - radius, pos[1] - radius, radius * 2, radius * 2);        
         ctx.strokeStyle = 'black';
         ctx.lineWidth = 1;
         ctx.stroke();
-        */
+*/
     }
 
     // drawing the labyrinth
