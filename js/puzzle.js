@@ -9,6 +9,7 @@
     let c = document.getElementById("myCanvas");
     let ctx = c.getContext("2d");
     let back = new Image();
+    let levelHTML = document.getElementById("level");
 
     // ball stuff
     // let ball   = document.querySelector('.ball');
@@ -21,6 +22,9 @@
 
     let color = "purple";
 
+    // the win location
+    let winBox = [];
+
     // movement stuff, the 1st number is x and the 2nd number is y
     let position = [125, 125];
     let velocity = [0, 0];
@@ -31,18 +35,16 @@
     // Screen Size
     let screenHeight = c.height;
     let screenWidth = c.width;
-    let screenBorder = 15;
+    let screenBorder = 5;
 
     // labryrinth walls
     let walls = [];
 
     // user Input
     let keysPressed = {};
-
     document.addEventListener("keydown", function(e) {
         keysPressed[e.keyCode] = true;
     });
-
     document.addEventListener("keyup", function(e) {
         keysPressed[e.keyCode] = false;
     });
@@ -65,9 +67,12 @@
         yOrientOffset = beta;
     };
 
+    // the game setup stuff
+    let level = 1;
+
     // what happens at the start of the game
     function start(){
-        setup();
+        setup(level);
         drawGameBoard();
         drawBall(position);
     }
@@ -85,21 +90,50 @@
             checkLabryrinth(position, walls[i]);            
         }
 
+        // when the player wins
+        if (checkLabryrinth(position, winBox)){
+            reset();            
+            level++;
+            levelHTML.innerHTML = "Level " + level;
+            setup(level);
+        }
+
         // drawing steps
         drawGameBoard();
         for (let i = 0; i < walls.length; i++){
             drawLabryrinth(position, walls[i]);            
         }
+
+        drawWin();
+
         drawBall(position);
     }
 
-    function setup(){
+    function setup(levelNum){
+        if (levelNum == 1){
+            winBox = [220, 220, 15, 15];
+            position = [20, 20];
+            addWalls(40, 0, 20, 200);
+            addWalls(90, 50, 20, 200);
+            addWalls(140, 0, 20, 200);
+            addWalls(190, 50, 20, 200);
+        }
 
+        if (levelNum == 2){
+            winBox = [100, 50, 10, 10]
+            position = [240, 240];
+        }
     }
 
     // add the walls to the array
     function addWalls(x, y, width, height){
         walls[walls.length] = [x, y, width, height];
+    }
+
+    // draw the win spot
+    function drawWin(){
+        ctx.fillStyle = "green";
+        ctx.fillRect(winBox[0], winBox[1], winBox[2], winBox[3]);
     }
     
     // reset function
@@ -109,8 +143,9 @@
         velocity = [0, 0];
         force = [0, 0];
         acceleration = [0, 0];
-
+        walls = [];
         keysPressed = {};
+        winBox = [];
     }
 
     // drawing the game board
@@ -145,14 +180,14 @@
 
     // drawing the labyrinth
     function drawLabryrinth(pos, wallBox){
-        ctx.fillStyle = 'blue';
+        ctx.fillStyle = 'black';
         ctx.fillRect(wallBox[0], wallBox[1], wallBox[2], wallBox[3]);   
     }
 
     // collisions with the borders
     function checkBorders(pos){
         ballBox = [pos[0] - radius, pos[1] - radius, radius * 2, radius * 2];
-        borders = [15, 15, maxX-15, maxY-15];
+        borders = [screenBorder, screenBorder, screenWidth - (screenBorder * 2), screenHeight - (screenBorder * 2)];
 
         //bounce that ball if it hits a side
         if (ballBox[0] < borders[0]){
@@ -210,7 +245,7 @@
                 pos[0] = leftWall - radius;
                 velocity[0] = -velocity[0];
                 console.dir("left");
-                
+                return true;
             }
 
             // right Wall
@@ -218,7 +253,7 @@
                 pos[0] = rightWall + radius;
                 velocity[0] = -velocity[0];
                 console.dir("right");
-                
+                return true;
             }
 
              // top Wall
@@ -226,7 +261,7 @@
                 pos[1] = topWall - radius;
                 velocity[1] = -velocity[1];
                 console.dir("top");
-                
+                return true;
             }
 
             // bot Wall
@@ -234,7 +269,7 @@
                 pos[1] = botWall + radius;
                 velocity[1] = -velocity[1];
                 console.dir("bot");
-                
+                return true;
             }
         }
     }
