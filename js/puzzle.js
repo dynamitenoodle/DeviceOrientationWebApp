@@ -111,7 +111,7 @@
 
     function setup(levelNum){
         if (levelNum == 1){
-            winBox = [220, 220, 15, 15];
+            winBox = [220, 220, 15, 15]; 
             position = [20, 20];
             addWalls(40, 0, 20, 200);
             addWalls(90, 50, 20, 200);
