@@ -1,0 +1,132 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+*/
+
+/*
+ * Color: ee6e73
+*/
+
+/*General Stuff*/
+html{
+    font-family: 'Open Sans', sans-serif;
+    color: #E1E1E1;
+}
+
+/* NavBar */
+nav {
+    background: rgb(125, 125, 253);
+    border-bottom: 2px solid black;
+    height: 80px;
+    padding-top: 3px;
+}
+
+.btn{
+    padding-top: 10px;
+    text-align: center;
+    font-size: .7em;
+    background-color: rgb(125, 125, 253);
+    height: 60px;
+    width: 250px;
+    color: #E1E1E1;
+    border: 1px solid black;
+}
+
+.btn:visited{
+    background-color: rgb(125, 125, 253);
+}
+
+.btn:hover {
+    background-color: rgb(139, 139, 255);
+}
+
+.btn:active{
+    background-color: rgb(151, 151, 255);
+}
+
+/*Main and Body stuff*/
+.iris{
+    background: cover;
+    background: black;
+    background-repeat: repeat-y;
+    height: 100vh;
+    background-size: cover;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+    padding-bottom: 10px;
+    background-color: rgb(125, 125, 253);
+    padding-top: 10px;
+}
+
+/*Canvas stuff*/
+#myCanvas { 
+    position: relative;
+    border: 1px solid #000000;
+    background: white;
+}
+
+#resetButton {
+    padding-top: 0px;
+    font-size: 16px;
+    width: 350px;
+}
+
+/*For Phones*/
+@media only screen and (max-width: 1024px) {
+    html{
+        font-size: .8em;
+    }
+
+    main {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    nav {
+        height: 60px
+    }
+
+    #bio{
+        border-left: none;
+    }
+
+    .iris {
+        background-color: rgb(125, 125, 253);
+    }
+
+    /*Canvas stuff*/
+    #resetButton {
+        padding-top: 0px;
+        font-size: 8px;
+    }
+}
+
+/*For everything*/
+@media only screen and (max-width: 1600px) {
+    nav {
+        height: 75px;
+    }
+
+    .btn {
+        height: 60px;
+        width: 150px;
+        font-size: 11px;
+    }
+
+    /*Canvas stuff*/
+    #resetButton {
+        padding-top: 0px;
+        font-size: 15px;
+    }
+}

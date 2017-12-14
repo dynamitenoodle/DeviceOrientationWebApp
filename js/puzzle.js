@@ -19,6 +19,8 @@
     let maxX = c.clientWidth  - radius;
     let maxY = c.clientHeight - radius;
 
+    let color = "red";
+
     // movement stuff, the 1st number is x and the 2nd number is y
     let position = [240, 240];
     let velocity = [0, 0];
@@ -32,7 +34,7 @@
     let screenBorder = 15;
 
     // labryrinth walls
-    let walls = [[150, 75, 100, 100]];
+    let walls = [];
 
     // user Input
     let keysPressed = {};
@@ -65,6 +67,7 @@
 
     // what happens at the start of the game
     function start(){
+        setup();
         drawGameBoard();
         drawBall(position);
     }
@@ -89,7 +92,27 @@
         }
         drawBall(position);
     }
+
+    function setup(){
+
+    }
+
+    // add the walls to the array
+    function addWalls(x, y, width, height){
+        walls[walls.length] = [x, y, width, height];
+    }
     
+    // reset function
+    function reset() {
+        // reset the numbers
+        position = [240, 240];
+        velocity = [0, 0];
+        force = [0, 0];
+        acceleration = [0, 0];
+
+        keysPressed = {};
+    }
+
     // drawing the game board
     function drawGameBoard(pos){
         // background
@@ -104,7 +127,7 @@
     function drawBall(pos){
         ctx.beginPath();
         ctx.arc(pos[0], pos[1], radius, 0, 2 * Math.PI, false);
-        ctx.fillStyle = 'green';
+        ctx.fillStyle = color;
         ctx.fill();
         ctx.lineWidth = 5;
         ctx.strokeStyle = '#003300';
@@ -298,11 +321,12 @@
       gamma = x;
       beta = y;
 
+    /*
       output.innerHTML  = "gamma : " + gamma + "\n";
       output.innerHTML += "beta : " + beta + "\n";
       output.innerHTML += "xOffset: " + xOrientOffset + "\n";
       output.innerHTML += "yOffset: " + yOrientOffset + "\n";
-
+    */
       if (xOrientOffset != 0 || yOrientOffset != 0) {
         x -= xOrientOffset;
         y -= yOrientOffset;
@@ -315,8 +339,10 @@
       if (y > 90) { y = 90};
       if (y < -90) { y = -90};
 
+      /*
       output.innerHTML += "X : " + x + "\n";
       output.innerHTML += "Y: " + y + "\n";
+      */
 
       setValues(x, y);
     }

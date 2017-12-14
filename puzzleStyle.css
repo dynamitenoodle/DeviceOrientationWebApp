@@ -1,9 +1,0 @@
-#myCanvas { 
-    position: relative;
-    border:1px solid #000000;
-}
-
-#resetButton {
-    width: 250px;
-    height: 50px;
-}

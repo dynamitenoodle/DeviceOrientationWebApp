@@ -5,28 +5,59 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
     <title>Gleckner-Puzzle</title>
-    <link rel="stylesheet" type="text/css" href="puzzleStyle.css">
-    <!--
-        The Canvas Guide
-         https://www.w3schools.com/html/html5_canvas.asp
-        The making a game in javascript guide
-         https://msdn.microsoft.com/en-us/library/gg589497(v=vs.85).aspx 
-        Creating more basic shapes
-         https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
-    -->
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    
+    <!-- CSS  -->
+    <link href="css/materialize.css" type="text/css" rel="stylesheet"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet"/>
 </head>
 
-<body>
-    <div>
-        <canvas id="myCanvas" width="500" height="500"></canvas>
-    </div>
+<body class="iris">
+    <!--NavBar-->
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <!-- logo image -->
+            <!--<a id="menu-logo" href="#" class="brand-logo left hide-on-small-and-down">Coehl Gleckner</a>-->
+            <ul class="brand-logo center hide-on-med-and-down">
+                <li><a class="active waves-effect waves-light btn" href="index.html">Home</a></li>
+                <li><a class="waves-effect waves-light btn" href="puzzle.html">Puzzle</a></li>
+                <li><a class="waves-effect waves-light btn" href="documentation.html">Documentation</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="puzzle.html">Puzzle</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <button id="resetButton">Reset default Orientation</button>
+    <!-- Main -->
+    <main class="container">
+        <div class="center row">
+            <div class="col l1 m1 s12">
+                <p>
+                    <!--Here to space the rest of the page correctly-->
+                </p>   
+            </div>     
 
-    <!--<div class="ball"></div>-->
+            <div class="col l10 m10 s12" id="bio">
+                <h1 class="center white-text" id="level">Level 1</h1>
+                <div>
+                    <canvas id="myCanvas" width="500" height="500"></canvas>
+                </div>
+                
+                <button class="waves-effect waves-light btn" id="resetButton">Reset default Orientation</button>
+                
+            </div>
+        </div>
+    </main>
     
     <pre class="output"></pre>
-    <script src="puzzle.js"></script>
+    <script src="js/puzzle.js"></script>
     
 </body>
 
