@@ -12,7 +12,7 @@
 
     // ball stuff
     // let ball   = document.querySelector('.ball');
-    let radius = 10;
+    let radius = 5;
     let garden = document.querySelector('.garden');
     let output = document.querySelector('.output');
 
@@ -26,11 +26,11 @@
     let velocity = [0, 0];
     let acceleration = [0, 0];
     let force = [0, 0];
-    let maxSpeed = 15;
+    let maxSpeed = 10;
 
     // Screen Size
-    let screenHeight = 500;
-    let screenWidth = 500;
+    let screenHeight = c.height;
+    let screenWidth = c.width;
     let screenBorder = 15;
 
     // labryrinth walls
