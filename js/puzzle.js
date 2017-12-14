@@ -12,7 +12,7 @@
 
     // ball stuff
     // let ball   = document.querySelector('.ball');
-    let radius = 5;
+    let radius = 6;
     let garden = document.querySelector('.garden');
     let output = document.querySelector('.output');
 
@@ -22,7 +22,7 @@
     let color = "purple";
 
     // movement stuff, the 1st number is x and the 2nd number is y
-    let position = [240, 240];
+    let position = [125, 125];
     let velocity = [0, 0];
     let acceleration = [0, 0];
     let force = [0, 0];
@@ -105,7 +105,7 @@
     // reset function
     function reset() {
         // reset the numbers
-        position = [240, 240];
+        position = [0, 0];
         velocity = [0, 0];
         force = [0, 0];
         acceleration = [0, 0];
@@ -354,7 +354,7 @@
 
     function movement(pos, x, y){
         // testing basic movement
-        let modify = 10;
+        let modify = 20;
         let direction = 10;
         x = x / modify;
         y = y / modify;
