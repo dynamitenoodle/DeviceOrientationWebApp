@@ -69,6 +69,35 @@ main {
     padding-top: 10px;
 }
 
+#documentation {
+    font-size: 1.2em;
+    padding-left: 25px;
+}
+
+.paragraph ul{
+    list-style-type: inital;
+    color: red;
+}
+
+a {
+    color: rgb(206, 206, 206);
+}
+
+a:visisted {
+    color: rgb(206, 206, 206);
+    
+}
+
+a:hover {
+    color: rgb(165, 165, 165);
+    
+}
+
+a:active {
+    color: rgb(212, 212, 212);
+    
+}
+
 /*Canvas stuff*/
 #myCanvas { 
     position: relative;

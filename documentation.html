@@ -45,7 +45,7 @@
         </nav>
 
         <!-- Main -->
-        <main class="container">
+        <main class="container" id="documentation">
             <div class="center row">
                 <div class="col l1 m1 s12">
                     <p>
@@ -53,11 +53,20 @@
                     </p>   
                 </div>     
 
-                <div class="col l10 m10 s12" id="bio">
-                    <h1 class="center white-text">Device Orientation Puzzle</h1>
-                    <h4 class="center">Created by Coehl Gleckner</h4>
-                    <p>(If your device doesn't have device orientation, use WASD to move the ball)</p>
-
+                <div class="left col l12 m12 s12" id="bio">
+                    <h1 class="center white-text">Documentation</h1>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/SChNWl55Vro" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                    <p class="paragraph">
+                        My project was originally conceptualized as the can shaking game from mario party 8, and upon researching ways to create the app on mobile I stumbled across <a href="https://developer.mozilla.org/en-US/docs/Web/API/Detecting_device_orientation">Device Orientation</a>,
+                        which gets the x and y rotation of the device that the script is being ran on. Using <a href="https://www.w3schools.com/html/html5_canvas.asp">Javascript Canvas</a> and some help with <a href="https://msdn.microsoft.com/en-us/library/gg589497(v=vs.85).aspx">Javascript game programming</a> tutorials,
+                        I was able to create my simple maze game. The <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes">basic shapes</a> created
+                        using canvas were also from a tutorial, but I also had help from a professor to make the circle draw how I wanted to.
+                    </p>
+                    <p class="paragraph">
+                        I used my portfolio as a basis for the pages, but I changed it quite signifigantly (although it still looks similar). The mazes themselves I thought up myself, and
+                        the collisions on them are a bit wonky to say the least. The major issue with them is the corners, because multiple collisions are happening at the same time and I 
+                        couldn't figure out a solution that wouldn't requiring hard coding alot of checks to fix.
+                    </p>
                 </div>
             </div>
         </main>
