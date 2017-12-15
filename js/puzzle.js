@@ -85,6 +85,7 @@
         drawBall(position);
         console.dir(window.location.pathname);
     }
+    
 
     // the game loop
     function gameLoop() {
@@ -116,6 +117,7 @@
         drawWin();
 
         drawBall(position);
+        
     }
 
     function setup(levelNum){

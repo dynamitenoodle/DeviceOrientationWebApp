@@ -139,6 +139,16 @@ a:active {
     #resetButton {
         padding-top: 0px;
         font-size: 8px;
+        width: 280px;
+    }
+
+    #videoBoy {
+        width: 260px;
+        height: 250px;
+    }
+
+    #docTitle {
+        font-size: 35px;
     }
 }
 

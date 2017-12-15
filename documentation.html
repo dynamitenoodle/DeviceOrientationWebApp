@@ -32,14 +32,14 @@
                 <!-- logo image -->
                 <!--<a id="menu-logo" href="#" class="brand-logo left hide-on-small-and-down">Coehl Gleckner</a>-->
                 <ul class="brand-logo center hide-on-med-and-down">
-                    <li><a class="active waves-effect waves-light btn" href="index.html">Home</a></li>
+                    <li><a class="waves-effect waves-light btn" href="index.html">Home</a></li>
                     <li><a class="waves-effect waves-light btn" href="puzzle.html">Puzzle</a></li>
-                    <li><a class="waves-effect waves-light btn" href="documentation.html">Documentation</a></li>
+                    <li><a class="active waves-effect waves-light btn" href="documentation.html">Documentation</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
-                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="puzzle.html">Puzzle</a></li>
-                        <li><a href="documentation.html">Documentation</a></li>
+                        <li class="active"><a href="documentation.html">Documentation</a></li>
                 </ul>   
             </div>
         </nav>
@@ -54,8 +54,8 @@
                 </div>     
 
                 <div class="left col l12 m12 s12" id="bio">
-                    <h1 class="center white-text">Documentation</h1>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/SChNWl55Vro" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                    <h1 class="center white-text" id="docTitle">Documentation</h1>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/SChNWl55Vro" allowfullscreen id="videoBoy"></iframe>
                     <p class="paragraph">
                         My project was originally conceptualized as the can shaking game from mario party 8, and upon researching ways to create the app on mobile I stumbled across <a href="https://developer.mozilla.org/en-US/docs/Web/API/Detecting_device_orientation">Device Orientation</a>,
                         which gets the x and y rotation of the device that the script is being ran on. Using <a href="https://www.w3schools.com/html/html5_canvas.asp">Javascript Canvas</a> and some help with <a href="https://msdn.microsoft.com/en-us/library/gg589497(v=vs.85).aspx">Javascript game programming</a> tutorials,
@@ -95,6 +95,5 @@
             <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
             <script src="js/materialize.js"></script>
             <script src="js/init.js"></script>
-            <script src="js/puzzle.js"></script>
     </body>
 </html>
