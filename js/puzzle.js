@@ -140,14 +140,49 @@
             addWalls(190, 50, 20, 200);
         }
 
-        if (levelNum == 3){
+        if (levelNum == 3) {
+            radius = 8;
+            position = [20, 20];
+            winBox = [5, 230, 16, 15];
+            addWalls(5, 35, 195, 10);
+            addWalls(21, 85, 10, 170);
+            addWalls(155, 85, 10, 140);
+            addWalls(50, 220, 200, 10);
+            addWalls(120, 45, 10, 140);
+            addWalls(85, 85, 10, 140);
+            addWalls(190, 45, 10, 140);
+            addWalls(50, 45, 10, 140);
+            
+        }
+
+        if (levelNum == 4) {
+            radius = 6;
+            position = [15, 15];
+            winBox = [5, 220, 25, 25]
+            addWalls(30, 50, 5, 140);
+            addWalls(0, 25, 195, 5);
+            addWalls(220, 00, 5, 145);
+            addWalls(5, 215, 215, 5);
+            addWalls(35, 50, 30, 5);
+            addWalls(170, 50, 50, 5);
+            addWalls(95, 50, 45, 5);
+            addWalls(95, 30, 5, 25);
+            addWalls(65, 115, 5, 105);
+            addWalls(30, 85, 190, 5);            
+            addWalls(100, 115, 5, 105);
+            addWalls(135, 85, 5, 105);
+            addWalls(170, 85, 5, 105);            
+            addWalls(220, 175, 5, 45);
+        }
+
+        if (levelNum == 5){
             maxSpeed = 6;
             radius = 4;
             winBox = [205, 32, 10, 10]
             position = [240, 1240];
-            addWalls(20, 20, 10, 200);
-            addWalls(20, 20, 200, 10);
-            addWalls(220, 20, 10, 185);
+            addWalls(20, 30, 10, 190);
+            addWalls(20, 20, 210, 10);
+            addWalls(220, 30, 10, 175);
             addWalls(20, 220, 230, 10);
             addWalls(45, 195, 180, 10);
             addWalls(30, 170, 175, 10);            
@@ -156,7 +191,6 @@
             addWalls(45, 95, 180, 10);
             addWalls(30, 70, 175, 10); 
             addWalls(45, 45, 180, 10);
-            
         }
 
         if (levelNum == 0) {
@@ -253,7 +287,7 @@
     // collisions within the labyrinth
     function checkLabryrinth(pos, wallBox){
         // values for ease
-        let leaway = 10;
+        let leaway = 8;
         let rightWall = wallBox[0] + wallBox[2];
         let leftWall = wallBox[0];
         let botWall = wallBox[1] + wallBox[3];
