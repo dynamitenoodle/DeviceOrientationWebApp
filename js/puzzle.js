@@ -119,7 +119,8 @@
     }
 
     function setup(levelNum){
-        if (levelNum == 1){
+        if (levelNum == 2){
+            radius = 8;
             winBox = [220, 220, 15, 15]; 
             position = [20, 20];
             addWalls(40, 0, 20, 200);
@@ -128,9 +129,16 @@
             addWalls(190, 50, 20, 200);
         }
 
-        if (levelNum == 2){
+        if (levelNum == 1){
+            radius = 5;
             winBox = [100, 50, 10, 10]
-            position = [240, 240];
+            position = [125, 125];
+            addWalls(20, 20, 10, 200);
+            addWalls(20, 20, 200, 10);
+            addWalls(220, 20, 10, 200);
+            addWalls(20, 220, 200, 10);
+            addWalls(45, 100, 200, 10);
+            
         }
 
         if (levelNum == 0) {
