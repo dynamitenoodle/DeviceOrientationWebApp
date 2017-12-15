@@ -119,6 +119,15 @@
     }
 
     function setup(levelNum){
+        if (levelNum == 1){
+            radius = 8;
+            position = [40, 225];
+            winBox = [90, 200, 25, 25];
+            addWalls(75, 75, 100, 100);
+            addWalls(75, 175, 10, 75);
+
+        }
+
         if (levelNum == 2){
             radius = 8;
             winBox = [220, 220, 15, 15]; 
@@ -129,15 +138,21 @@
             addWalls(190, 50, 20, 200);
         }
 
-        if (levelNum == 1){
+        if (levelNum == 3){
             radius = 5;
-            winBox = [100, 50, 10, 10]
-            position = [125, 125];
+            winBox = [205, 32, 10, 10]
+            position = [240, 1240];
             addWalls(20, 20, 10, 200);
             addWalls(20, 20, 200, 10);
-            addWalls(220, 20, 10, 200);
-            addWalls(20, 220, 200, 10);
-            addWalls(45, 100, 200, 10);
+            addWalls(220, 20, 10, 185);
+            addWalls(20, 220, 230, 10);
+            addWalls(45, 195, 180, 10);
+            addWalls(30, 170, 175, 10);            
+            addWalls(45, 145, 180, 10);
+            addWalls(30, 120, 175, 10); 
+            addWalls(45, 95, 180, 10);
+            addWalls(30, 70, 175, 10); 
+            addWalls(45, 45, 180, 10);
             
         }
 
